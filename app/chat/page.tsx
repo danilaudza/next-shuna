@@ -28,7 +28,7 @@ const Chat = () => {
           : "text"
         const code = codeLines.join("\n")
         return (
-          <pre className="relative my-2 rounded-lg bg-muted p-4">
+          <pre key={part} className="relative my-2 rounded-lg bg-muted p-4">
             <p className="absolute inset-x-0 top-0 m-0 rounded-t bg-primary px-4 py-1 text-sm text-primary-foreground">
               {normalizedLanguage}
             </p>
@@ -39,7 +39,7 @@ const Chat = () => {
         )
       }
       //
-      return <p>{part}</p>
+      return <p key={part}>{part}</p>
     })
     return renderedParts
   }
