@@ -1,15 +1,10 @@
 import { HfInference } from '@huggingface/inference'
 import { HuggingFaceStream, StreamingTextResponse } from 'ai'
  
-// Create a new Hugging Face Inference instance
 const Hf = new HfInference(process.env.HUGGINGFACE_API_KEY)
  
-// IMPORTANT! Set the runtime to edge
 export const runtime = 'edge'
  
-// Build a prompt from the messages
-// Note: this is specific to the OpenAssistant model we're using
-// @see https://huggingface.co/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5#prompting
 function buildOpenAssistantPrompt(
   messages: { content: string; role: 'system' | 'user' | 'assistant' }[]
 ) {
@@ -27,7 +22,6 @@ function buildOpenAssistantPrompt(
 }
  
 export async function POST(req: Request) {
-  // Extract the `messages` from the body of the request
   const { messages } = await req.json()
  
   const response = Hf.textGenerationStream({
@@ -43,9 +37,7 @@ export async function POST(req: Request) {
     }
   })
  
-  // Convert the response into a friendly text-stream
   const stream = HuggingFaceStream(response)
  
-  // Respond with the stream
   return new StreamingTextResponse(stream)
 }
