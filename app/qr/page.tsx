@@ -59,11 +59,22 @@ const QrPage = () => {
     <>
       <div className="flex flex-col items-center justify-center gap-8 my-auto">
         <ShunaComment message="here it is !!, please create your qrcode" />
+        <div className="hidden">
+          <QRCodeSVG
+            id="result"
+            className="rounded-md"
+            value={debouncedInputValue || "https://danilaudza.com"}
+            size={state.size}
+            bgColor={state.bg}
+            fgColor={state.fg}
+            includeMargin={true}
+            level="L"
+          />
+        </div>
         <QRCodeSVG
-          id="result"
           className="rounded-md"
           value={debouncedInputValue || "https://danilaudza.com"}
-          size={state.size}
+          size={256}
           bgColor={state.bg}
           fgColor={state.fg}
           includeMargin={true}
