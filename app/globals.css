@@ -76,3 +76,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+.dark .w-color-editable-input {
+  --editable-input-label-color: #757575 !important;
+  --editable-input-box-shadow: #616161 0px 0px 0px 1px inset !important;
+  --editable-input-color: #bbb !important;
+}
+
+.dark .w-color-github {
+  --github-border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  --github-background-color: #323232 !important;
+  --github-box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px !important;
+  --github-arrow-border-color: rgba(0, 0, 0, 0.15) !important;
+}
