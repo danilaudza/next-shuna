@@ -30,7 +30,7 @@ const initialState = {
   type: "svg",
 }
 
-const page = () => {
+const QrPage = () => {
   const [state, setState] = useState<StateType>(initialState)
   const [debouncedInputValue, setDebouncedInputValue] = useState("")
 
@@ -151,4 +151,4 @@ const page = () => {
   )
 }
 
-export default page
+export default QrPage
